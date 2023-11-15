@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="Style/styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STK</title>
+  </head>
+  <body>
+    <div class="flexbox">
+      <header>
+        <h1>Statliga Televisionskanalen</h1>
+      </header>
+      <main>
+        <h2>Lägg till ett tv-program</h2>
+
+        <div>
+          <form onsubmit="addShow()" id="formForShows">
+            <label for="showTitle">Titel:</label><br />
+            <input
+              type="text"
+              id="showTitle"
+              placeholder="Skriv in titel"
+              name="showTitle"
+            /><br />
+
+            <label for="showDescription">Beskrivning:</label><br />
+            <textarea
+              id="showDescription"
+              placeholder="Beskriv programmet"
+              name="showDescription"
+              rows="4"
+              cols="50"
+            ></textarea
+            ><br />
+
+            <label for="ageRating">Åldersgräns:</label>
+            <select id="ageRating" name="age">
+              <option value="Barntillåten">Barntillåten</option>
+              <option value="7+">7+</option>
+              <option value="11+">11+</option>
+              <option value="15+">15+</option>
+              <option value="Ej Granskad">Ej granskad</option></select
+            ><br />
+            <input type="submit" value="Lägg till" />
+          </form>
+        </div>
+
+        <h2>Sök</h2>
+        <input
+          type="text"
+          id="searchShow"
+          onkeyup="searchShow()"
+          placeholder="Sök efter program..."
+        />
+
+        <ul id="searchResultList"></ul>
+
+        <div id="showDetailsOnClick" style="display: none">
+          <h2 id="detailTitle"></h2>
+          <p id="detailDescription"></p>
+          <p id="detailAgeRating"></p>
+        </div>
+
+        <button onclick="clearLocalStorage()" id="clearLocal" value="clear">
+          Rensa sparad lokaldata
+        </button>
+      </main>
+      <footer></footer>
+    </div>
+
+    <script src="Script/scripts.js"></script>
+  </body>
+</html>
